@@ -1,13 +1,23 @@
 import type {ReactNode} from "react";
 
-type Props = {
-    children: ReactNode;
-}
-
-export default function Window({children}: Props) {
+export default function Window({children}: {children: ReactNode}) {
     return (
-        <div className="w-5 bg-black">
+        <div className="w-3xl rounded-xl border overflow-hidden">
             {children}
         </div>
     );
 };
+
+
+Window.Content = function Content({children, className}: {children: ReactNode, className?: string}) {
+    return (
+        <div className={`bg-gray-600 ${className}`}>
+            {children}
+        </div>
+    );
+};
+
+Window.Title = function Title({children}: {children: ReactNode}) {
+    return (<div>{children}</div>)
+}
+
